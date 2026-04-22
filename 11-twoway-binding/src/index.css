@@ -1,0 +1,10 @@
+html,body{
+  height: 100%;
+  width: 100%;
+  background-color: rgb(247, 236, 222);
+}
+input,button{
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 15px;
+}

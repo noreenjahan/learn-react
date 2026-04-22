@@ -1,0 +1,248 @@
+PROPS + STATE MINI PROJECT - FULL EXPLANATION
+
+Project location:
+props-03
+
+Goal of this project:
+This mini project is built to teach two core React concepts in one simple app:
+1) Props (passing data from parent to child components)
+2) State (storing dynamic UI data and updating UI when users interact)
+
+What the app does:
+- Shows team/member cards.
+- Lets you search members by name.
+- Lets you filter by role.
+- Lets you mark members as favorite.
+- Lets you show only favorite members.
+- Shows a clear message when no card matches filters.
+
+----------------------------------------
+1. HIGH-LEVEL STRUCTURE
+----------------------------------------
+
+Main files:
+- src/main.jsx
+- src/App.jsx
+- src/components/Card.jsx
+- src/index.css
+
+How rendering starts:
+- main.jsx mounts App into the root DOM node.
+- App.jsx controls all app data and logic.
+- Card.jsx is a presentational child component receiving props from App.
+
+Flow:
+main.jsx -> App.jsx (state + logic) -> Card.jsx (UI using props)
+
+----------------------------------------
+2. PROPS USAGE IN THIS PROJECT
+----------------------------------------
+
+Props are used to send data and actions from App (parent) to Card (child).
+
+In App.jsx, each Card receives:
+- user: member name
+- role: member role
+- img: profile image URL
+- bio: short description
+- isFavorite: true/false favorite status
+- onToggleFavorite: function to update favorite status
+
+In Card.jsx:
+- Props are destructured in function parameters.
+- Card displays user, role, image, and bio directly from props.
+- Card calls onToggleFavorite when button is clicked.
+
+Important idea:
+- Child component (Card) does not own the members list.
+- Parent (App) owns the data.
+- Child receives data and callback via props.
+
+This is the standard React data pattern:
+- Data goes down (parent -> child through props)
+- Events go up (child -> parent through callback functions)
+
+----------------------------------------
+3. STATE USAGE IN THIS PROJECT
+----------------------------------------
+
+App.jsx has four state values:
+
+1) members
+- Type: array of objects
+- Initial value: initialMembers array
+- Purpose: source of truth for all member data, including favorite status
+
+2) search
+- Type: string
+- Initial value: empty string
+- Purpose: tracks search input text
+
+3) roleFilter
+- Type: string
+- Initial value: All
+- Purpose: controls selected role in dropdown
+
+4) showFavoritesOnly
+- Type: boolean
+- Initial value: false
+- Purpose: decides whether to show all members or only favorites
+
+Why state is needed:
+- UI changes on user actions.
+- React re-renders automatically when state updates.
+- This gives instant visual feedback for search/filter/favorite actions.
+
+----------------------------------------
+4. DERIVED DATA WITH useMemo
+----------------------------------------
+
+Two values are derived from state with useMemo:
+
+A) roles
+- Built from current members array.
+- Creates unique role list using Set.
+- Prepends All option.
+
+B) visibleMembers
+- Filters members using three conditions:
+  - name contains search text
+  - role matches selected role (or All)
+  - if Favorites only is enabled, member must be favorite
+
+Why useMemo here:
+- Keeps filtering/role derivation logic organized.
+- Avoids recomputing unless dependencies change.
+- Makes component intent cleaner for learning.
+
+----------------------------------------
+5. FAVORITE TOGGLE LOGIC
+----------------------------------------
+
+Function:
+- toggleFavorite(memberId)
+
+How it works:
+- Uses setMembers with functional update.
+- Maps through current members.
+- If member id matches memberId:
+  - returns a new object with isFavorite flipped.
+- Else:
+  - returns member unchanged.
+
+Why this is correct:
+- State is updated immutably (no direct mutation).
+- React can detect changes and re-render correctly.
+
+----------------------------------------
+6. UI CONTROLS AND THEIR STATE CONNECTION
+----------------------------------------
+
+Search input:
+- value bound to search state.
+- onChange updates search.
+
+Role select:
+- value bound to roleFilter state.
+- options come from derived roles array.
+- onChange updates roleFilter.
+
+Favorites checkbox:
+- checked bound to showFavoritesOnly state.
+- onChange updates showFavoritesOnly.
+
+Card button:
+- click triggers onToggleFavorite from props.
+- parent updates members state.
+
+----------------------------------------
+7. CONDITIONAL RENDERING
+----------------------------------------
+
+In App.jsx:
+- If visibleMembers length is 0:
+  - show No members match your filter.
+- Else:
+  - render Card list from visibleMembers.
+
+This demonstrates practical conditional rendering with state-derived data.
+
+----------------------------------------
+8. STYLING OVERVIEW
+----------------------------------------
+
+All styles are in src/index.css.
+
+Style highlights:
+- Global reset and box sizing.
+- Soft gradient page background.
+- Responsive container layout.
+- Controls row with input, select, and checkbox.
+- Card grid using auto-fill and minmax for responsive behavior.
+- Rounded cards, badges, and buttons for clean visual hierarchy.
+- Media query at max-width 760px to stack controls for mobile.
+
+----------------------------------------
+9. COMPONENT RESPONSIBILITY SPLIT
+----------------------------------------
+
+App component responsibilities:
+- Owns data/state.
+- Computes filters.
+- Handles state updates.
+- Decides what to render.
+
+Card component responsibilities:
+- Receives props.
+- Displays one member.
+- Triggers callback for favorite action.
+
+This split keeps code maintainable and scalable.
+
+----------------------------------------
+10. REACT CONCEPTS YOU PRACTICE HERE
+----------------------------------------
+
+- Functional components
+- useState
+- useMemo
+- Controlled inputs
+- List rendering with key
+- Callback props
+- Conditional rendering
+- Immutable updates
+- Separation of container logic and presentational UI
+
+----------------------------------------
+11. HOW TO RUN THE PROJECT
+----------------------------------------
+
+From props-03 folder:
+- npm install
+- npm run dev
+
+Build for production:
+- npm run build
+
+----------------------------------------
+12. POSSIBLE NEXT IMPROVEMENTS
+----------------------------------------
+
+If you want to extend learning, add:
+1) LocalStorage persistence for favorites.
+2) Add member form with validation.
+3) Remove member action.
+4) Role counts (example: Developer 2, Designer 1).
+5) Sort controls (name A-Z, favorites first).
+6) Split controls into separate reusable components.
+
+----------------------------------------
+13. SUMMARY
+----------------------------------------
+
+This project is a clean beginner-friendly example where:
+- Props are used to pass member data and actions to Card.
+- State is used to manage search, filtering, and favorites.
+- UI updates are fully driven by React state changes.
+
+If you understand this project well, you have a solid base to build larger React apps.

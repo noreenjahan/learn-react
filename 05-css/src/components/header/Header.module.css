@@ -1,0 +1,19 @@
+.header{
+    background-color: rgb(90, 206, 144);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin:5px;
+}
+.btn{
+    background-color: rgb(196, 207, 130);
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin:5px;
+}
+.logo{
+    font-size: 25px;
+    color: azure;
+    text-decoration: underline;
+}

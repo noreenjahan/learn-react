@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Fredoka One', 'cursive';
+}
+html,body{
+  height: 100%;
+  width: 100%;
+  background-color: #f3eff2;
+}
+
+.card{
+  background-color: #fff0fa;
+  padding: 20px;
+  height: 400px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;   
+  margin:30px;
+  border-radius: 24px;
+  border: 2px solid #f9c4e8;
+ 
+}
+h2{
+  font-size: 20px;
+  font-weight: lighter;
+  color: #d873b5;
+  letter-spacing:2px ;
+}
+button{
+  padding: 16px;
+  margin: 14px;
+  background-color:#fbc4e9;
+  color: #c2529f;
+  border: none;
+  border-radius: 8px;
+  font-size: larger;
+  font-weight: bold;
+  box-shadow:0 4px 0 #d88fc5;
+}
+button:active{
+  transform: translateY(3px);
+  box-shadow: none;
+}
+.rbtn{
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 3px 0 #e8b2d7;
+  width: 150px;
+  font-weight: lighter;
+  letter-spacing: 2px;
+}
+.rbtn:active{
+  transform: translateY(3px);
+  box-shadow: none;
+}
+h1{
+  
+  width: fit-content;
+  font-size: 100px;
+  font-weight: lighter;
+  padding: 10px 70px;
+  margin: 20px;
+  border-radius: 5px;
+  color: #d873b5;
+  
+}

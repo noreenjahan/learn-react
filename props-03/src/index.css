@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f8fbff 0%, #edf4ff 100%);
+  color: #182230;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 40px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.header p {
+  color: #3d4a5c;
+  margin-bottom: 20px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 180px auto;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.controls input,
+.controls select {
+  border: 1px solid #cad8f0;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background-color: #ffffff;
+  font-size: 0.95rem;
+}
+
+.favorite-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff;
+  border: 1px solid #cad8f0;
+  border-radius: 10px;
+  padding: 10px 12px;
+  white-space: nowrap;
+}
+
+.parent {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #d4e0f5;
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.role-badge {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 999px;
+  background-color: #ebf2ff;
+  color: #27436d;
+  font-size: 0.82rem;
+  padding: 4px 10px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #495b75;
+  line-height: 1.45;
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+  flex: 1;
+}
+
+.card button {
+  border: none;
+  border-radius: 10px;
+  background-color: #1447e6;
+  color: #ffffff;
+  padding: 10px 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background-color: #113cbf;
+}
+
+.empty-state {
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  border: 1px dashed #b7c9e9;
+}
+
+@media (max-width: 760px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+}
