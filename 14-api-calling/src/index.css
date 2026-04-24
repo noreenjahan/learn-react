@@ -1,0 +1,9 @@
+button{
+    padding: 10px;
+    margin: 15px;
+    display: flex;
+    border-radius: 12px;
+    border: solid rgb(154, 56, 220);
+    background-color: rgb(208, 171, 243);
+    
+}
