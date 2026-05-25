@@ -1,0 +1,30 @@
+h3{
+    color:black;
+
+}
+.card{
+    height: 400px;
+    width: 400px;
+}
+button{
+    padding: 12px 10px;
+    border-radius: 4px;
+    font-size: 19px;
+     margin: 20px;
+     width: 440px;
+     border:none;
+    
+}
+.text{
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 7px;
+}
+.author_name{
+    display: flex;
+}
+.line{
+    margin-top: 20px;
+}
