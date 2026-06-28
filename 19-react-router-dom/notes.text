@@ -1,0 +1,22 @@
+#BrowserRouter
+
+everything is clientt based
+
+webiste.com = /
+website.com/projects = /projects
+website.com/about = /about
+
+# router dom
+for hidden routing
+server is unaware of routes 
+webiste.com = /#/
+website.com/projects = /#/projects
+website.com/about = /#/about
+
+#Memory router
+store all entries in Memory
+
+#static router
+used in next js
+
+
