@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+html,body{
+  /* font-family: Courier New ; */
+  background-color: rgb(232, 165, 225);
+  height: 100%; 
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.light{
+  background-color: rgb(244, 238, 218);
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 7px;
+  align-items: center;
+  font-size: larger;
+}
+.dark{
+  background-color: rgb(159, 142, 89);
+    display: flex;
+  justify-content: space-between;
+  padding: 4px 7px;
+  align-items: center;
+  font-size: larger;
+}
+.nav2{
+   display: flex;
+ gap: 30px;
+}
